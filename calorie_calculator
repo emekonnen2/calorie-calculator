@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string gender;
+    float bmi;
+    int dailyCalories;
+
+    // Input gender
+    std::cout << "Enter your gender (Male/Female): ";
+    std::cin >> gender;
+
+    // Input BMI
+    std::cout << "Enter your BMI: ";
+    std::cin >> bmi;
+
+    // Determine daily caloric needs based on BMI and gender
+    if (gender == "Male") {
+        if (bmi < 18.5) {
+            dailyCalories = 2400;
+        } else if (bmi >= 18.5 && bmi < 25.0) {
+            dailyCalories = 2800;
+        } else {
+            dailyCalories = 2600;
+        }
+    } else if (gender == "Female") {
+        if (bmi < 18.5) {
+            dailyCalories = 1800;
+        } else if (bmi >= 18.5 && bmi < 25.0) {
+            dailyCalories = 2200;
+        } else {
+            dailyCalories = 2000;
+        }
+    } else {
+        std::cout << "Invalid gender input. Please enter Male or Female.";
+        return 1; // Exit with an error code
+    }
+
+    // Output the recommended daily calories
+    std::cout << "Recommended daily caloric intake is: " << dailyCalories << " calories.\n";
+
+    return 0;
+}
